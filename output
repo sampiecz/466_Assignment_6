@@ -1,0 +1,180 @@
+###########################################################
+# CSCI 466 - Assignment 6 - Spring 2018                   #
+#                                                         #
+# Progammer: Sam Piecz                                    #
+# Z-ID: Z1732715                                          #
+# Section: 3                                              #
+# TA: Rajarshi Sen                                        #
+# Date Due: March 26, 2018                                # 
+# Purpose: SQL queries from multiple tables               # 
+###########################################################
+ 
+###########################################################
+# 1.                                                      #
+###########################################################
++----------+-----------------+--------------+-------------+
+| LastName | FirstName       | BoatName     | BoatType    |
++----------+-----------------+--------------+-------------+
+| Adney    | Bruce and Doris | Anderson II  | Sprite 4000 |
+| Adney    | Bruce and Doris | Bravo        | Dolphin 25  |
+| Anderson | Bill            | Our Toy      | Ray 4025    |
+| Blake    | Mary Jane       | Krispy       | Ray 4025    |
+| Blake    | Mary Jane       | Escape       | Sprite 4000 |
+| Elend    | Mary and Bill   | Anderson III | Sprite 3000 |
+| Feenstra | Daniel          | Gypsy        | Dolphin 28  |
+| Feenstra | Daniel          | Axxon II     | Dolphin 40  |
+| Juarez   | Maria           | Axxon IV     | Dolphin 40  |
+| Kelly    | Alyssa          | Chinook      | Dolphin 22  |
++----------+-----------------+--------------+-------------+
+10 rows in set (0.01 sec)
+
+###########################################################
+# 2.                                                      #
+###########################################################
++----------+-----------------+----------+
+| LastName | FirstName       | NumBoats |
++----------+-----------------+----------+
+| Adney    | Bruce and Doris |        2 |
+| Blake    | Mary Jane       |        2 |
+| Feenstra | Daniel          |        2 |
++----------+-----------------+----------+
+3 rows in set (0.00 sec)
+
+###########################################################
+# 3.                                                      #
+###########################################################
++---------------------------------------------------------------------------------------------------------+----------+
+| Description                                                                                             | LastName |
++---------------------------------------------------------------------------------------------------------+----------+
+| Air conditioner periodically stops with code indicating low coolant level. Diagnose and repair.         | Adney    |
+| Air conditioning unit shuts down with HHH showing on the control panel.                                 | Juarez   |
+| Both speed and depth readings on data unit are significantly less than the owner thinks they should be. | Feenstra |
+| Canvas leaks around zippers in heavy rain. Install overlap around zippers to prevent leaks.             | Blake    |
+| Canvas severely damaged in windstorm. Order and install new canvas.                                     | Kelly    |
+| Customer describes engine as making a clattering sound.                                                 | Trent    |
+| Electric-flush system periodically stops functioning. Diagnose and repair.                              | Smeltz   |
+| Engine oil level has been dropping drastically. Diagnose and repair.                                    | Adney    |
+| Engine overheating. Loss of coolant. Diagnose and repair.                                               | Adney    |
+| Fuse on port motor blown on two occasions. Diagnose and repair.                                         | Elend    |
++---------------------------------------------------------------------------------------------------------+----------+
+10 rows in set (0.00 sec)
+
+###########################################################
+# 4.                                                      #
+###########################################################
++---------------------------------------------------+-------------+
+| CategoryDescription                               | CategoryNum |
++---------------------------------------------------+-------------+
+| Air conditioning                                  |           3 |
+| Canvas installation                               |           6 |
+| Canvas repair                                     |           7 |
+| Electrical systems                                |           4 |
+| Electronic systems (radar, GPS, autopilots, etc.) |           8 |
+| Engine repair                                     |           2 |
+| Fiberglass repair                                 |           5 |
+| Routine engine maintenance                        |           1 |
++---------------------------------------------------+-------------+
+8 rows in set (0.00 sec)
+
+###########################################################
+# 5.                                                      #
+###########################################################
++----------+-----------------+-------------+-------+-------------------+
+| LastName | FirstName       | City        | State | Name              |
++----------+-----------------+-------------+-------+-------------------+
+| Trent    | Ashton          | Bay Shores  | FL    | Alexamara Central |
+| Adney    | Bruce and Doris | Bowton      | FL    | Alexamara East    |
+| Blake    | Mary Jane       | Bowton      | FL    | Alexamara East    |
+| Kelly    | Alyssa          | Bowton      | FL    | Alexamara Central |
+| Anderson | Bill            | Glander Bay | FL    | Alexamara East    |
+| Smeltz   | Becky and Dave  | Glander Bay | FL    | Alexamara Central |
+| Feenstra | Daniel          | Kaleva      | FL    | Alexamara East    |
+| Smith    | Peter           | Lewiston    | FL    | Alexamara Central |
+| Elend    | Mary and Bill   | Rivard      | FL    | Alexamara East    |
+| Juarez   | Maria           | Rivard      | FL    | Alexamara South   |
++----------+-----------------+-------------+-------+-------------------+
+10 rows in set (0.00 sec)
+
+###########################################################
+# 6.                                                      #
+###########################################################
++-------------------+-------------------+
+| Name              | SUM(ms.RentalFee) |
++-------------------+-------------------+
+| Alexamara Central |          16500.00 |
+| Alexamara East    |          16200.00 |
+| Alexamara South   |           8400.00 |
++-------------------+-------------------+
+3 rows in set (0.00 sec)
+
+###########################################################
+# 7.                                                      #
+###########################################################
++----+-----------------+-------------+------------+
+| ID | Estimated Hours | Spent Hours | Difference |
++----+-----------------+-------------+------------+
+|  1 |            8.00 |        3.00 |       5.00 |
+|  2 |            4.00 |        2.00 |       2.00 |
+|  3 |            2.00 |        0.00 |       2.00 |
+|  4 |            1.00 |        0.00 |       1.00 |
+|  5 |            2.00 |        0.00 |       2.00 |
+|  6 |            1.00 |        1.00 |       0.00 |
+|  7 |            3.00 |        0.00 |       3.00 |
+|  8 |            2.00 |        0.00 |       2.00 |
+|  9 |            4.00 |        1.00 |       3.00 |
+| 10 |            8.00 |        0.00 |       8.00 |
++----+-----------------+-------------+------------+
+10 rows in set (0.00 sec)
+
+###########################################################
+# 8.                                                      #
+###########################################################
++----------+--------------+--------+
+| LastName | BoatName     | Length |
++----------+--------------+--------+
+| Feenstra | Gypsy        |     30 |
+| Elend    | Anderson III |     30 |
+| Adney    | Bravo        |     25 |
+| Kelly    | Chinook      |     25 |
+| Trent    | Listy        |     25 |
+| Smith    | Mermaid      |     30 |
++----------+--------------+--------+
+6 rows in set (0.00 sec)
+
+###########################################################
+# 9.                                                      #
+###########################################################
++--------------+-----------------+
+| BoatName     | NextServiceDate |
++--------------+-----------------+
+| Anderson II  | 2013-07-12      |
+| Anderson III | 2013-07-12      |
+| Axxon IV     | 2020-12-31      |
+| Bravo        | 2013-07-13      |
+| Chinook      | 2013-07-16      |
+| Gypsy        | 2013-07-16      |
+| Karvel       | 2020-12-31      |
+| Krispy       | 2013-07-17      |
+| Listy        | 2013-07-12      |
+| Our Toy      | 2013-07-17      |
++--------------+-----------------+
+10 rows in set (0.00 sec)
+
+###########################################################
+# 10.                                                     #
+###########################################################
++--------------+----------+--------+-------------------+
+| BoatName     | LastName | SlipID | Name              |
++--------------+----------+--------+-------------------+
+| Anderson II  | Adney    |      1 | Alexamara East    |
+| Anderson III | Elend    |      5 | Alexamara East    |
+| Axxon II     | Feenstra |     10 | Alexamara Central |
+| Axxon IV     | Juarez   |     12 | Alexamara South   |
+| Bravo        | Adney    |      6 | Alexamara Central |
+| Chinook      | Kelly    |      7 | Alexamara Central |
+| Escape       | Blake    |      3 | Alexamara East    |
+| Gypsy        | Feenstra |      4 | Alexamara East    |
+| Karvel       | Smeltz   |     11 | Alexamara Central |
+| Krispy       | Blake    |     13 | Alexamara South   |
++--------------+----------+--------+-------------------+
+10 rows in set (0.00 sec)
